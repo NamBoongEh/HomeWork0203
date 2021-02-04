@@ -24,7 +24,7 @@ public class User implements java.io.Serializable{
     }
 
     //각 변수 별 하나씩 기본 초기화와 참조변수 있는 초기화
-
+    //오른쪽 누르고 generate 눌러서 getter setter 클릭 -> 모든 변수 클릭
     public String getId() {
         return id;
     }
