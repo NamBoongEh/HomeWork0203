@@ -11,6 +11,11 @@ public class User implements java.io.Serializable{
     private Date inDate; //정보 입력일
     private Date upDate; //정보 업데이트일
 
+    @Override
+    public String toString() {
+        return id + " " + name + " " + pw + " " + email;
+    }
+
     // 생성자 초기화
     public User(){}
 
@@ -72,4 +77,6 @@ public class User implements java.io.Serializable{
     public void setUpDate(Date upDate) {
         this.upDate = upDate;
     }
+
+
 }

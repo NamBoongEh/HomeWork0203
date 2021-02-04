@@ -6,14 +6,20 @@ import java.util.List;
 
 public class DAOTest6 {
 
+    public static void main(String[] args) {
+
+        List<User> list = selectAllUsers();
+        System.out.println(list);
+
+
+    }
+
     public static List<User> selectAllUsers(){
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         User u = null;
-        ArrayList<User> list = new ArrayList<>();
-
-        System.out.println(u);
+        ArrayList<User> list = new ArrayList<User>();
 
         try {
             String url = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -69,7 +75,6 @@ public class DAOTest6 {
                 }
             }
         }
-
 
         return list;
     }
