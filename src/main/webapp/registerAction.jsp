@@ -1,6 +1,7 @@
 <%@ page import="static codechobo.DAOTest2.insertUser" %>
 <%@ page import="static codechobo.DAOTest4.selectUser" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <jsp:useBean id="User" class="codechobo.User" scope="request"/>
 <jsp:setProperty name="User" property="*"/>
@@ -25,6 +26,12 @@
     User.setPw(request.getParameter("pw"));
     User.setEmail(request.getParameter("email"));
 --%>
+
+<%--<c:set var="id" value="${param.id}"/>--%>
+<%--<c:set var="name" value="${param.name}"/>--%>
+<%--<c:set var="pw" value="${param.pw}"/>--%>
+<%--<c:set var="email" value="${param.email}"/>--%>
+
 <%
     String id = request.getParameter("id");
     System.out.println("getparameter로 받은 id의 값은" + id + "<----임");
@@ -65,13 +72,13 @@
         goback = false;
     }
 
-    if(goback==false)
+    System.out.println("gdback은 " + goback);
+
+    if(!goback){
 %>
     <jsp:forward page="register.jsp"/>
 
-<%
-
-
+<%}
     // setproperty 이후에 해야지 저장이 되어있는걸 가져 올 수 있지 않을까?
     insertUser(User);
 

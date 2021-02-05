@@ -11,6 +11,7 @@ public class DAOTest2 {
         // 이건 나중에 해제할꺼다. 맨 밑에 finally 참고.
         Connection conn = null;
         PreparedStatement pstmt = null;
+        System.out.println("인서트 하는 곳에 도착했습니다.");
         int result = 0;
 
         try {

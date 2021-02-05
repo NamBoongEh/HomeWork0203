@@ -1,8 +1,8 @@
 <%@ page import="static codechobo.DAOTest6.selectAllUsers" %>
-<%@ page import="codechobo.DAOTest6" %>
 <%@ page import="codechobo.User" %>
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%
     List<User> list = selectAllUsers();
@@ -21,7 +21,6 @@
     //해결 get으로 이쁘게 나왔는데 이걸 어떻게 찢어야하나?
     // 지금 이 부분은 안하고 css에서 찢어서 이쁘게 칸마다 넣어야함.(즉 지금은 출력해서 화면에 보이기까지만 하면 됨)
 
-    String person = "";
     for(int i=0; i<list.size(); i++){
         System.out.println("이렇게 뽑아냈어요! ---> " + list.get(i));
         //get() 뒤에 다시 . 붙이고 .getId() .getPw() 를 쓰면 된다.
@@ -37,7 +36,7 @@
 </head>
 <body>
 
-    <table border="1">
+    <table border="1" align="center">
 
         <th>ID</th>
         <th>PW</th>
@@ -47,11 +46,16 @@
         <%for(int i=0; i<list.size(); i++){
         %>
 
-        <tr><!--줄 시작 -->
-            <td><%=list.get(i).getId()%></td>
-            <td><%=list.get(i).getPw()%></td>
-            <td><%=list.get(i).getName()%></td>
-            <td><%=list.get(i).getEmail()%></td>
+        <tr align="center"><!--줄 시작 -->
+            <td>${list.get(i).id}</td>
+            <td>${list.get(i).pw}</td>
+            <td>${list.get(i).name}</td>
+            <td>${list.get(i).email}</td>
+
+<%--            <td><%=list.get(i).getId()%></td>--%>
+<%--            <td><%=list.get(i).getPw()%></td>--%>
+<%--            <td><%=list.get(i).getName()%></td>--%>
+<%--            <td><%=list.get(i).getEmail()%></td>--%>
 
 
         </tr><!--줄 끝-->
