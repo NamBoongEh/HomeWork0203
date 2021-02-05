@@ -3,6 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <%
     List<User> list = selectAllUsers();
@@ -20,6 +21,8 @@
 
     //해결 get으로 이쁘게 나왔는데 이걸 어떻게 찢어야하나?
     // 지금 이 부분은 안하고 css에서 찢어서 이쁘게 칸마다 넣어야함.(즉 지금은 출력해서 화면에 보이기까지만 하면 됨)
+
+    request.setAttribute("list", list);
 
     for(int i=0; i<list.size(); i++){
         System.out.println("이렇게 뽑아냈어요! ---> " + list.get(i));
@@ -43,23 +46,24 @@
         <th>Name</th>
         <th>e-mail</th>
 
-        <%for(int i=0; i<list.size(); i++){
-        %>
+        <%--for(int i=0; i<list.size(); i++){
+        --%>
 
+        <c:forEach var="i" begin="0" end="${fn:length(list)-1}">
         <tr align="center"><!--줄 시작 -->
-            <td>${list.get(i).id}</td>
-            <td>${list.get(i).pw}</td>
-            <td>${list.get(i).name}</td>
-            <td>${list.get(i).email}</td>
+            <td>${list[i].id}</td>
+            <td>${list[i].pw}</td>
+            <td>${list[i].name}</td>
+            <td>${list[i].email}</td>
 
 <%--            <td><%=list.get(i).getId()%></td>--%>
 <%--            <td><%=list.get(i).getPw()%></td>--%>
 <%--            <td><%=list.get(i).getName()%></td>--%>
 <%--            <td><%=list.get(i).getEmail()%></td>--%>
-
-
         </tr><!--줄 끝-->
-        <%}%>
+        </c:forEach>
+
+        <%--}--%>
     </table>
 
     <%--
