@@ -7,14 +7,26 @@
 <%
     List<User> list = selectAllUsers();
     System.out.println("연결했으요~");
-    System.out.println("이거입니다! ----> " + list.toString());
-
-    String[] arr = list.toString().split(",");
+//    System.out.println("이거입니다! ----> " + list.toString());
+//
+//    System.out.println(list.get(1) + "<--- get으로 받은거 여기입니다!");
 
     //split으로 찢어보자. 그 뒤에 또 " "를 찢어서 2차원 배열로 만들고, []는 replace로 없애자.
-    for(int i=0; i<arr.length; i++){
-        System.out.println(arr[i]);
+    //불가. replace로 안없어짐.
+    //최악의 수단. 가능. " "로 먼저 찢고, ","를 ""로 변환.
+    //Memo 정답!!!!!!!!!!!!! get으로 꺼내볼까? ( get으로 꺼낸다.)
+    //   System.out.println(list.get(1) + "<--- get으로 받은거 여기입니다!");
+    //   출력 화면 : ff22f3 1234 남궁성 aaa@aaa.com<--- get으로 받은거 여기입니다!
+
+    //해결 get으로 이쁘게 나왔는데 이걸 어떻게 찢어야하나?
+    // 지금 이 부분은 안하고 css에서 찢어서 이쁘게 칸마다 넣어야함.(즉 지금은 출력해서 화면에 보이기까지만 하면 됨)
+
+    String person = "";
+    for(int i=0; i<list.size(); i++){
+        System.out.println("이렇게 뽑아냈어요! ---> " + list.get(i));
+        //get() 뒤에 다시 . 붙이고 .getId() .getPw() 를 쓰면 된다.
     }
+
 %>
 
 
@@ -24,8 +36,38 @@
     <title>listInfo</title>
 </head>
 <body>
-    마이크 테스트중~<br>
-    <br>
-    <br><+% selectAllUsers() 쓰면 주소값이 나옴.
+
+    <table border="1">
+
+        <th>ID</th>
+        <th>PW</th>
+        <th>Name</th>
+        <th>e-mail</th>
+
+        <%for(int i=0; i<list.size(); i++){
+        %>
+
+        <tr><!--줄 시작 -->
+            <td><%=list.get(i).getId()%></td>
+            <td><%=list.get(i).getPw()%></td>
+            <td><%=list.get(i).getName()%></td>
+            <td><%=list.get(i).getEmail()%></td>
+
+
+        </tr><!--줄 끝-->
+        <%}%>
+    </table>
+
+    <%--
+    <%for(int i=0; i<list.size(); i++){
+        person = list.get(i).toString();
+    %>
+    <%=person%><br>
+    <%}%>
+
+
+    <br> 여기는 아이디 뽑아내는 테스트 <br>
+    <%=list.get(1).getId()%>
+    --%>
 </body>
 </html>
