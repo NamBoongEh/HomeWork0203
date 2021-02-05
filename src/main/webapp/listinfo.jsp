@@ -40,7 +40,7 @@
 <body>
 
     <table border="1" align="center">
-
+        <th>No.</th>
         <th>ID</th>
         <th>PW</th>
         <th>Name</th>
@@ -51,6 +51,7 @@
 
         <c:forEach var="i" begin="0" end="${fn:length(list)-1}">
         <tr align="center"><!--줄 시작 -->
+            <td>${i+1}</td>
             <td>${list[i].id}</td>
             <td>${list[i].pw}</td>
             <td>${list[i].name}</td>
