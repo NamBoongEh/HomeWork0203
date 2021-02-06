@@ -72,8 +72,6 @@
         goback = false;
     }
 
-    System.out.println("gdback은 " + goback);
-
     if(!goback){
 %>
     <jsp:forward page="register.jsp"/>
