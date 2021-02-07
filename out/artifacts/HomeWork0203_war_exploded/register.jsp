@@ -97,6 +97,12 @@
     }
     p{
         font-size: small;
+        color: red;
+    }
+    p.email{
+        font-size: small;
+        color: black;
+        height: 100%;
     }
 </style>
 <body>
@@ -104,27 +110,28 @@
         <form action="registerAction.jsp" font-family="Lucida Blackletter">
             <p class="solid">
         <input type="text" name="id" value="" placeholder="ID"><br>
-               ${idNull}${idSame}<br>
+               ${idNull}${idSame}${idCant}<br>
                 <%--
                 <%=idNull%>
                 <%=idSame%>
                 --%>
         <input type="text" name="name" value="" placeholder="Your name"><br>
-                ${nameNull}<br>
+                ${nameNull}${nameMake}<br>
                 <%--
                 <%=nameNull%><br>
                 --%>
         <input type="password" name="pw" value="" placeholder="Password"><br>
-                ${pwNull}<br>
+                ${pwNull}${pwLength}${pwMake}<br>
                 <%--
                 <%=pwNull%><br>
                 --%>
         <input type="text" name="email" value="" placeholder="E-mail"><br>
-                ${emailNull}<br>
+                ${emailNull}${emailGolbang}<br>
                 <%--
                 <%=emailNull%><br>
                 --%>
                 <br>
+
         <button class="button" type="submit" >Sign up</button><br>
             </p>
         </form>

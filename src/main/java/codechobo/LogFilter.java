@@ -27,10 +27,10 @@ public class LogFilter implements Filter {
 
         //로그인 했는지 안했는지에 따라서 어디로 보낼지 정한다.
         if(httpSession!=null){
-            if(httpSession.getAttribute("filter")!=null)
-                login = true;
+            login = true;
         }
         if(login) {
+            System.out.println("필터 성공!");
             chain.doFilter(request, response);
         }
         else{

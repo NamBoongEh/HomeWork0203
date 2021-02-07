@@ -38,6 +38,7 @@
     <title>listInfo</title>
 </head>
 <body>
+<jsp:include page="menu.jsp"/>
 
     <table border="1" align="center">
         <th>No.</th>
@@ -48,7 +49,6 @@
 
         <%--for(int i=0; i<list.size(); i++){
         --%>
-
         <c:forEach var="i" begin="0" end="${fn:length(list)-1}">
         <tr align="center"><!--줄 시작 -->
             <td>${i+1}</td>
@@ -56,17 +56,14 @@
             <td>${list[i].pw}</td>
             <td>${list[i].name}</td>
             <td>${list[i].email}</td>
-
 <%--            <td><%=list.get(i).getId()%></td>--%>
 <%--            <td><%=list.get(i).getPw()%></td>--%>
 <%--            <td><%=list.get(i).getName()%></td>--%>
 <%--            <td><%=list.get(i).getEmail()%></td>--%>
         </tr><!--줄 끝-->
         </c:forEach>
-
         <%--}--%>
     </table>
-
     <%--
     <%for(int i=0; i<list.size(); i++){
         person = list.get(i).toString();
@@ -74,9 +71,10 @@
     <%=person%><br>
     <%}%>
 
-
     <br> 여기는 아이디 뽑아내는 테스트 <br>
     <%=list.get(1).getId()%>
     --%>
+
+    <jsp:include page="footer.jsp"/>
 </body>
 </html>
